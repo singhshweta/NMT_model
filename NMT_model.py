@@ -51,7 +51,6 @@ ger_length = max_length(dataset[:, 1])
 trainX = encode_sequences(ger_tokenizer, ger_length, train[:, 1])
 print(trainX)
 
-"""
 # one hot encode target sequence
 def encode_output(sequences, vocab_size):
 	ylist = list()
@@ -109,6 +108,3 @@ print(model.summary())
 filename = 'model.h5'
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 model.fit(trainX, trainY, epochs=30, batch_size=64, validation_data=(testX, testY), callbacks=[checkpoint], verbose=2)
-
-
-"""
